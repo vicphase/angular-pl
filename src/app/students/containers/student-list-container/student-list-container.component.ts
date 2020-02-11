@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs/operators';
 
-import { Student } from '../../models/student.model';
+import { LoadingService } from '../../../shared/components/loading/loading.service';
+import { QueryParams } from '../../../shared/models/query-params.model';
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-student-list-container',
@@ -9,6 +11,16 @@ import { Student } from '../../models/student.model';
   styleUrls: ['./student-list-container.component.scss']
 })
 export class StudentListContainerComponent {
-  students: Student[] = this.route.snapshot.data.resolvedStudents;
-  constructor(private route: ActivatedRoute) {}
+  students$ = this.studentsService.students$;
+  loading$ = this.loadingService.loading$;
+  hasMoreItems$ = this.studentsService.hasMoreItems$;
+  constructor(private studentsService: StudentsService, private loadingService: LoadingService) {}
+
+  getMoreItems(): void {
+    const queryParams: Partial<QueryParams> = { resetList: false };
+    this.studentsService
+      .getStudents(queryParams)
+      .pipe(take(1))
+      .subscribe();
+  }
 }

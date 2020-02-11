@@ -11,17 +11,4 @@ import { Student } from '../../models/student.model';
 })
 export class StudentListComponent extends ListComponent<Student> {
   @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
-  @Input() ignoreNextBatch: boolean;
-  nextBatch(): void {
-    if (this.ignoreNextBatch) {
-      return;
-    }
-
-    const { end } = this.viewport.getRenderedRange();
-    const total = this.viewport.getDataLength();
-
-    if (end === total && end > 0 && total > 0) {
-      this.getMoreItems.emit();
-    }
-  }
 }

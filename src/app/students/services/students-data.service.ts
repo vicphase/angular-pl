@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { QueryParams } from '../../shared/models/query-params.model';
 
 import { TherapyTypes } from '../../therapies/enums/therapy-types.enum';
 import { Student } from '../models/student.model';
@@ -398,13 +399,9 @@ export class StudentsDataService {
     return students;
   }
 
-  getStudents(count = 50) {
-    return new Promise((resolve, reject) => {
-      const delayMilliseconds = this.randomNumber(250, 1000);
-      setTimeout(() => {
-        const students = this.generate(count);
-        resolve({ students });
-      }, delayMilliseconds);
-    });
+  getStudents(queryParams: Partial<QueryParams>): Student[] {
+    let students = this.students;
+    students = students.slice(queryParams.offset, queryParams.offset + queryParams.limit);
+    return students;
   }
 }

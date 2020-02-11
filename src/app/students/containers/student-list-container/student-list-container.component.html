@@ -1,1 +1,5 @@
-<app-student-list [list]="students"></app-student-list>
+<app-student-list [list]="students$ | async"
+                  [hasMoreItems]="hasMoreItems$ | async"
+                  [loading]="loading$ | async"
+                  (getMoreItems)="getMoreItems()">
+</app-student-list>

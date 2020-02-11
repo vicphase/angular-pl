@@ -24,7 +24,8 @@
 
   <app-virtual-scroll [list]="list"
                       [ignoreNextBatch]="!hasMoreItems || loading"
-                      (nextBatchEmitter)="getMoreItems.emit()">
+                      height="70vh"
+                      (getNextBatch)="getMoreItems.emit()">
     <ng-template let-item
                  let-index="index">
       <div class="row d-flex align-items-center py-3 mx-0"
