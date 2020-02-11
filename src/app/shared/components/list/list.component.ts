@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 
 import { QueryParams } from '../../models/query-params.model';
-import { SortEvent } from '../../models/sort-event.model';
 
 export interface CrudEvents<T> {
   create: EventEmitter<void>;
@@ -32,7 +32,7 @@ export class ListComponent<T = any> implements CrudEvents<T> {
     this.filterItems.emit({ text });
   }
 
-  updateSort(sort: SortEvent): void {
+  updateSort(sort: Sort): void {
     this.filterItems.emit({ sort });
   }
 }

@@ -401,8 +401,11 @@ export class StudentsDataService {
 
   getStudents(queryParams: Partial<QueryParams>): Student[] {
     let students = this.students;
+    if (queryParams.sort) {
+      const { active, direction } = queryParams.sort;
+      students = students.sort(compareValues(active, direction));
+    }
     students = students.slice(queryParams.offset, queryParams.offset + queryParams.limit);
-
     if (queryParams.text) {
       const filterText = queryParams.text.toLowerCase();
       students = students.filter(student => {
@@ -414,4 +417,24 @@ export class StudentsDataService {
     }
     return students;
   }
+}
+
+function compareValues(key: string, order: string = 'asc') {
+  return function innerSort(a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      // property doesn't exist on either object
+      return 0;
+    }
+
+    const varA = typeof a[key] === 'string' ? a[key].toUpperCase() : a[key];
+    const varB = typeof b[key] === 'string' ? b[key].toUpperCase() : b[key];
+
+    let comparison = 0;
+    if (varA > varB) {
+      comparison = 1;
+    } else if (varA < varB) {
+      comparison = -1;
+    }
+    return order === 'desc' ? comparison * -1 : comparison;
+  };
 }

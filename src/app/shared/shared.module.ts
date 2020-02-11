@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { LoadingComponent } from './components/loading/loading.component';
@@ -40,6 +41,8 @@ const MATERIAL_MODULES = [
   MatProgressSpinnerModule,
   // Popups & Modals
   MatDialogModule,
+  // Data table
+  MatSortModule,
   // CDK
   ScrollingModule
 ];

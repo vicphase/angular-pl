@@ -18,6 +18,21 @@
     </div>
   </div>
 
+  <div matSort
+       (matSortChange)="updateSort($event)"
+       class="row mx-0">
+    <div class="col-4">
+      <span mat-sort-header="name">Name</span>
+
+    </div>
+    <div class="col-6">
+      <span mat-sort-header="therapies">Therapies</span>
+    </div>
+    <div class="col-2 flex-end">
+      Actions
+    </div>
+  </div>
+
   <app-virtual-scroll [list]="list"
                       [ignoreNextBatch]="!hasMoreItems || loading"
                       height="70vh"

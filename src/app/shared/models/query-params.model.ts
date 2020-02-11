@@ -1,9 +1,9 @@
-import { SortEvent } from './sort-event.model';
+import { Sort } from '@angular/material/sort';
 
 export interface QueryParams {
   offset: number;
   limit: number;
   resetList: boolean;
-  sort: SortEvent;
+  sort: Sort;
   text: string;
 }
