@@ -1,6 +1,7 @@
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -15,9 +16,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { LoadingComponent } from './components/loading/loading.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
 import { ArrayToStringPipe } from './pipes/array-to-string.pipe';
-import { LoadingComponent } from './components/loading/loading.component';
 
 const MATERIAL_MODULES = [
   // Form controls
@@ -42,12 +44,12 @@ const MATERIAL_MODULES = [
   ScrollingModule
 ];
 
-const COMPONENTS = [LoadingComponent, VirtualScrollComponent];
+const COMPONENTS = [LoadingComponent, SearchBarComponent, VirtualScrollComponent];
 
 const PIPES = [ArrayToStringPipe];
 
 @NgModule({
-  imports: [CommonModule, MATERIAL_MODULES],
+  imports: [CommonModule, ReactiveFormsModule, MATERIAL_MODULES],
   exports: [MATERIAL_MODULES, COMPONENTS, PIPES],
   declarations: [COMPONENTS, PIPES]
 })

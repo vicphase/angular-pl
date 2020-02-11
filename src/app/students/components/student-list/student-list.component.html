@@ -7,11 +7,7 @@
 
   <div class="row">
     <div class="col-6">
-      <mat-form-field class="w-100">
-        <input matInput
-               placeholder="Search...">
-        <mat-icon matSuffix>search</mat-icon>
-      </mat-form-field>
+      <app-search-bar (valueChange)="updateSearchBarFilter($event)"></app-search-bar>
     </div>
     <div class="col-6 flex-end">
       <button mat-flat-button

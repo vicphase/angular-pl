@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+import { QueryParams } from '../../models/query-params.model';
+import { SortEvent } from '../../models/sort-event.model';
+
 export interface CrudEvents<T> {
   create: EventEmitter<void>;
   detail: EventEmitter<T>;
@@ -23,5 +26,13 @@ export class ListComponent<T = any> implements CrudEvents<T> {
   @Output() delete = new EventEmitter<T>();
   @Output() toggle = new EventEmitter<T>();
   @Output() getMoreItems = new EventEmitter<void>();
-}
+  @Output() filterItems = new EventEmitter<Partial<QueryParams>>();
 
+  updateSearchBarFilter(text: string): void {
+    this.filterItems.emit({ text });
+  }
+
+  updateSort(sort: SortEvent): void {
+    this.filterItems.emit({ sort });
+  }
+}

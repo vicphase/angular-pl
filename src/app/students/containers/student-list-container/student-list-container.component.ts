@@ -23,4 +23,12 @@ export class StudentListContainerComponent {
       .pipe(take(1))
       .subscribe();
   }
+
+  filterItems(queryParams: QueryParams): void {
+    const newQueryParams: Partial<QueryParams> = { ...queryParams, resetList: true };
+    this.studentsService
+      .getStudents(newQueryParams)
+      .pipe(take(1))
+      .subscribe();
+  }
 }

@@ -12,9 +12,14 @@ export class HttpHelperService {
       offset: 0,
       limit: DEFAULT_LIMIT_SIZE
     };
+    const params = { ...defaultQueryParams, ...queryParams };
     if (queryParams == null) {
       return defaultQueryParams;
     }
-    return { ...defaultQueryParams, ...queryParams };
+
+    if (queryParams.resetList) {
+      params.offset = 0;
+    }
+    return params;
   }
 }

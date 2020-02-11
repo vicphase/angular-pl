@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { QueryParams } from '../../shared/models/query-params.model';
 
+import { QueryParams } from '../../shared/models/query-params.model';
 import { TherapyTypes } from '../../therapies/enums/therapy-types.enum';
 import { Student } from '../models/student.model';
 
@@ -402,6 +402,16 @@ export class StudentsDataService {
   getStudents(queryParams: Partial<QueryParams>): Student[] {
     let students = this.students;
     students = students.slice(queryParams.offset, queryParams.offset + queryParams.limit);
+
+    if (queryParams.text) {
+      const filterText = queryParams.text.toLowerCase();
+      students = students.filter(student => {
+        return (
+          student.name.toLowerCase().includes(filterText) ||
+          !!student.therapies.filter(therapy => therapy.toLowerCase().includes(filterText)).length
+        );
+      });
+    }
     return students;
   }
 }

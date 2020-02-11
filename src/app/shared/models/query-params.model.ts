@@ -5,4 +5,5 @@ export interface QueryParams {
   limit: number;
   resetList: boolean;
   sort: SortEvent;
+  text: string;
 }
