@@ -1,1 +1,49 @@
-<p>student-list works!</p>
+<div class="container">
+  <div class="row mt-3 mb-2 text-center">
+    <div class="col">
+      <h2 class="font-primary">Students</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <mat-form-field class="w-100">
+        <input matInput
+               placeholder="Search...">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-6 flex-end">
+      <button mat-flat-button
+              [routerLink]="['new']"
+              color="primary">
+        New student
+      </button>
+    </div>
+  </div>
+
+  <mat-list role="list">
+    <cdk-virtual-scroll-viewport itemSize="48"
+                                 maxBufferPx="96"
+                                 minBufferPx="48">
+      <mat-list-item *cdkVirtualFor="let item of list"
+                     role="listitem"
+                     class="row">
+        <div class="col-4">
+          {{ item.name }}
+        </div>
+        <div class="col-6">
+          {{ item.therapies | json }}
+        </div>
+        <div class="col-2 flex-end">
+          <button mat-icon-button>
+            <mat-icon>border_color</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+    </cdk-virtual-scroll-viewport>
+  </mat-list>
+</div>

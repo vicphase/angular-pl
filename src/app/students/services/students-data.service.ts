@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../models/student.model';
+import { TherapyTypes } from 'src/app/therapies/enums/therapy-types.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -10,102 +11,102 @@ export class StudentsDataService {
     {
       id: '1',
       name: 'Tabitha Lorena',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '2',
       name: 'Tracey Luvenia',
-      therapies: ['speech', 'occupational'],
+      therapies: [TherapyTypes.speech, TherapyTypes.occupational],
     },
     {
       id: '3',
       name: 'Morris Cera',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '4',
       name: 'Brenda Colton',
-      therapies: ['speech', 'behavioral'],
+      therapies: [TherapyTypes.speech, TherapyTypes.behavioral],
     },
     {
       id: '5',
       name: 'Woodrow Rosemary',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '6',
       name: 'Bentley Rusty',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '7',
       name: 'Julius Darleen',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '8',
       name: 'Sharona Jared',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '9',
       name: 'Elenora Debbie',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '10',
       name: 'Minnie Missie',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '11',
       name: 'Nolan Walker',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '12',
       name: 'Raylyn Lyndon',
-      therapies: ['speech'],
+      therapies: [TherapyTypes.speech],
     },
     {
       id: '13',
       name: 'Elea Wilmer',
-      therapies: ['occupational'],
+      therapies: [TherapyTypes.occupational],
     },
     {
       id: '14',
       name: 'Roxanne Lavender',
-      therapies: ['occupational'],
+      therapies: [TherapyTypes.occupational],
     },
     {
       id: '15',
       name: 'Iggy Lavone',
-      therapies: ['occupational'],
+      therapies: [TherapyTypes.occupational],
     },
     {
       id: '16',
       name: 'Egbert Thankful',
-      therapies: ['occupational'],
+      therapies: [TherapyTypes.occupational],
     },
     {
       id: '17',
       name: 'Andrew Murray',
-      therapies: ['behavioral'],
+      therapies: [TherapyTypes.behavioral],
     },
     {
       id: '18',
       name: 'Cindra Tammi',
-      therapies: ['behavioral'],
+      therapies: [TherapyTypes.behavioral],
     },
     {
       id: '19',
       name: 'Maleah Averill',
-      therapies: ['behavioral'],
+      therapies: [TherapyTypes.behavioral],
     },
     {
       id: '20',
       name: 'Kizzy Elyse',
-      therapies: ['behavioral'],
+      therapies: [TherapyTypes.behavioral],
     },
   ];
 
@@ -363,9 +364,9 @@ export class StudentsDataService {
   ];
 
   therapies = [
-    'speech',
-    'occupational',
-    'behavioral',
+    TherapyTypes.speech,
+    TherapyTypes.occupational,
+    TherapyTypes.behavioral,
   ];
 
   randomNumber(min, max) {

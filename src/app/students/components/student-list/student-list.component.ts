@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { ListComponent } from 'src/app/shared/components/list/list.component';
+import { Student } from '../../models/student.model';
 
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.scss']
 })
-export class StudentListComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    console.log(this.route.snapshot.data.resolvedStudents);
-  }
-}
+export class StudentListComponent extends ListComponent<Student> {}
