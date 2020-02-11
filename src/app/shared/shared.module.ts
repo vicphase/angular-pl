@@ -14,6 +14,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { ArrayToStringPipe } from './pipes/array-to-string.pipe';
+import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
+import { CommonModule } from '@angular/common';
+
 const MATERIAL_MODULES = [
   // Form controls
   MatFormFieldModule,
@@ -37,8 +41,13 @@ const MATERIAL_MODULES = [
   ScrollingModule
 ];
 
+const COMPONENTS = [VirtualScrollComponent];
+
+const PIPES = [ArrayToStringPipe];
+
 @NgModule({
-  imports: [MATERIAL_MODULES],
-  exports: [MATERIAL_MODULES]
+  imports: [CommonModule, MATERIAL_MODULES],
+  exports: [MATERIAL_MODULES, COMPONENTS, PIPES],
+  declarations: [COMPONENTS, PIPES]
 })
 export class SharedModule {}

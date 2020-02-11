@@ -22,5 +22,6 @@ export class ListComponent<T = any> implements CrudEvents<T> {
   @Output() edit = new EventEmitter<T>();
   @Output() delete = new EventEmitter<T>();
   @Output() toggle = new EventEmitter<T>();
+  @Output() getMoreItems = new EventEmitter<void>();
 }
 

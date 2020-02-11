@@ -1,0 +1,14 @@
+<cdk-virtual-scroll-viewport class="gdx-virtual-scroll"
+                             itemSize="64"
+                             maxBufferPx="128"
+                             minBufferPx="64"
+                             [style.height]="height"
+                             (scrolledIndexChange)="nextBatch()">
+  <ng-template let-row
+               let-index="index"
+               cdkVirtualFor
+               [cdkVirtualForOf]="list">
+    <ng-container [ngTemplateOutlet]="rowTemplate || childRowTemplate"
+                  [ngTemplateOutletContext]="{ $implicit: row, index: index }"></ng-container>
+  </ng-template>
+</cdk-virtual-scroll-viewport>
