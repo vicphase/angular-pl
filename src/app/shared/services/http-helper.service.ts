@@ -1,8 +1,8 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DEFAULT_LIMIT_SIZE } from 'src/app/shared/constants/default-limit-size';
-import { QueryParams } from 'src/app/shared/models/query-params.model';
 
+import { DEFAULT_LIMIT_SIZE } from '../constants/default-limit-size';
+import { QueryParams } from '../models/query-params.model';
 import { SortEvent } from '../models/sort-event.model';
 
 @Injectable({

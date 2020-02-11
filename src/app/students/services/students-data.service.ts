@@ -1,113 +1,113 @@
 import { Injectable } from '@angular/core';
+
+import { TherapyTypes } from '../../therapies/enums/therapy-types.enum';
 import { Student } from '../models/student.model';
-import { TherapyTypes } from 'src/app/therapies/enums/therapy-types.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentsDataService {
-
   students: Student[] = [
     {
       id: '1',
       name: 'Tabitha Lorena',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '2',
       name: 'Tracey Luvenia',
-      therapies: [TherapyTypes.speech, TherapyTypes.occupational],
+      therapies: [TherapyTypes.speech, TherapyTypes.occupational]
     },
     {
       id: '3',
       name: 'Morris Cera',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '4',
       name: 'Brenda Colton',
-      therapies: [TherapyTypes.speech, TherapyTypes.behavioral],
+      therapies: [TherapyTypes.speech, TherapyTypes.behavioral]
     },
     {
       id: '5',
       name: 'Woodrow Rosemary',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '6',
       name: 'Bentley Rusty',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '7',
       name: 'Julius Darleen',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '8',
       name: 'Sharona Jared',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '9',
       name: 'Elenora Debbie',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '10',
       name: 'Minnie Missie',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '11',
       name: 'Nolan Walker',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '12',
       name: 'Raylyn Lyndon',
-      therapies: [TherapyTypes.speech],
+      therapies: [TherapyTypes.speech]
     },
     {
       id: '13',
       name: 'Elea Wilmer',
-      therapies: [TherapyTypes.occupational],
+      therapies: [TherapyTypes.occupational]
     },
     {
       id: '14',
       name: 'Roxanne Lavender',
-      therapies: [TherapyTypes.occupational],
+      therapies: [TherapyTypes.occupational]
     },
     {
       id: '15',
       name: 'Iggy Lavone',
-      therapies: [TherapyTypes.occupational],
+      therapies: [TherapyTypes.occupational]
     },
     {
       id: '16',
       name: 'Egbert Thankful',
-      therapies: [TherapyTypes.occupational],
+      therapies: [TherapyTypes.occupational]
     },
     {
       id: '17',
       name: 'Andrew Murray',
-      therapies: [TherapyTypes.behavioral],
+      therapies: [TherapyTypes.behavioral]
     },
     {
       id: '18',
       name: 'Cindra Tammi',
-      therapies: [TherapyTypes.behavioral],
+      therapies: [TherapyTypes.behavioral]
     },
     {
       id: '19',
       name: 'Maleah Averill',
-      therapies: [TherapyTypes.behavioral],
+      therapies: [TherapyTypes.behavioral]
     },
     {
       id: '20',
       name: 'Kizzy Elyse',
-      therapies: [TherapyTypes.behavioral],
-    },
+      therapies: [TherapyTypes.behavioral]
+    }
   ];
 
   names = [
@@ -360,14 +360,10 @@ export class StudentsDataService {
     'Aqib Zamora',
     'Herman Floyd',
     'Shakir Ali',
-    'Cade Fischer',
+    'Cade Fischer'
   ];
 
-  therapies = [
-    TherapyTypes.speech,
-    TherapyTypes.occupational,
-    TherapyTypes.behavioral,
-  ];
+  therapies = [TherapyTypes.speech, TherapyTypes.occupational, TherapyTypes.behavioral];
 
   randomNumber(min, max) {
     const num = Math.floor(Math.random() * (max - min) + min);
@@ -396,7 +392,7 @@ export class StudentsDataService {
       students.push({
         id: (ii + 1).toString(),
         name: this.pickRandom(this.names),
-        therapies: this.pickSome(this.therapies, 0.33),
+        therapies: this.pickSome(this.therapies, 0.33)
       });
     }
     return students;

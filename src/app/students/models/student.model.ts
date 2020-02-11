@@ -1,4 +1,4 @@
-import { TherapyTypes } from 'src/app/therapies/enums/therapy-types.enum';
+import { TherapyTypes } from '../../therapies/enums/therapy-types.enum';
 
 export interface Student {
   id: string;

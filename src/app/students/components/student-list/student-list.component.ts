@@ -1,7 +1,7 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { Component, Input, ViewChild } from '@angular/core';
-import { ListComponent } from 'src/app/shared/components/list/list.component';
 
+import { ListComponent } from '../../../shared/components/list/list.component';
 import { Student } from '../../models/student.model';
 
 @Component({

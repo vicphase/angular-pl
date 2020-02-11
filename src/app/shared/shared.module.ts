@@ -1,4 +1,5 @@
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,9 +15,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { ArrayToStringPipe } from './pipes/array-to-string.pipe';
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
-import { CommonModule } from '@angular/common';
+import { ArrayToStringPipe } from './pipes/array-to-string.pipe';
+import { LoadingComponent } from './components/loading/loading.component';
 
 const MATERIAL_MODULES = [
   // Form controls
@@ -41,7 +42,7 @@ const MATERIAL_MODULES = [
   ScrollingModule
 ];
 
-const COMPONENTS = [VirtualScrollComponent];
+const COMPONENTS = [LoadingComponent, VirtualScrollComponent];
 
 const PIPES = [ArrayToStringPipe];
 
