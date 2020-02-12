@@ -66,6 +66,7 @@ const PIPES = [ArrayToStringPipe];
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, MATERIAL_MODULES],
   exports: [MATERIAL_MODULES, COMPONENTS, PIPES],
-  declarations: [COMPONENTS, PIPES]
+  declarations: [COMPONENTS, PIPES],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class SharedModule {}
