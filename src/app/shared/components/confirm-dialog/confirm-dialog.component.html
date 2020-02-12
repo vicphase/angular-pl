@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Confirm</h1>
+<div mat-dialog-content>
+  <p>{{ data.message }}</p>
+</div>
+<div mat-dialog-actions
+     class="flex-end row py-3">
+  <button mat-raised-button
+          [mat-dialog-close]="false"
+          class="mr-2">
+    Cancel
+  </button>
+  <button mat-raised-button
+          color="primary"
+          class="mr-3"
+          [mat-dialog-close]="true">
+    Accept
+  </button>
+</div>

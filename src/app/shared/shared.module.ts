@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { FormComponent } from './components/form/form.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -52,7 +53,13 @@ const MATERIAL_MODULES = [
   ScrollingModule
 ];
 
-const COMPONENTS = [LoadingComponent, FormComponent, SearchBarComponent, VirtualScrollComponent];
+const COMPONENTS = [
+  ConfirmDialogComponent,
+  LoadingComponent,
+  FormComponent,
+  SearchBarComponent,
+  VirtualScrollComponent
+];
 
 const PIPES = [ArrayToStringPipe];
 

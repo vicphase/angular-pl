@@ -70,4 +70,17 @@ export class StudentsService {
       tap(() => this.loadingService.hide())
     );
   }
+
+  removeStudent(id: string): Observable<Student> {
+    this.loadingService.show();
+    return of(this.studentsDataService.deleteStudent(id)).pipe(
+      delay(DELAY_TIME),
+      tap(removedStudent => {
+        this.studentsSubject.next(
+          this.studentsSubject.value.filter(student => student.id !== removedStudent.id)
+        );
+        this.loadingService.hide();
+      })
+    );
+  }
 }

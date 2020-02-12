@@ -52,7 +52,8 @@
                   [routerLink]="[item.id]">
             <mat-icon>border_color</mat-icon>
           </button>
-          <button mat-icon-button>
+          <button mat-icon-button
+                  (click)="delete.emit(item)">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

@@ -433,6 +433,13 @@ export class StudentsDataService {
     this.students[index] = updatedStudent;
     return updatedStudent;
   }
+
+  deleteStudent(id: string): Student {
+    const index = this.students.findIndex(student => student.id === id);
+    const deletedStudent = this.students[index];
+    this.students = this.students.filter(student => student.id !== id);
+    return deletedStudent;
+  }
 }
 
 function compareValues(key: string, order: string = 'asc') {
