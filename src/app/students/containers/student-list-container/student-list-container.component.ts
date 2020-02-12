@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { filter, switchMap, take } from 'rxjs/operators';
 
@@ -12,7 +12,8 @@ import { StudentDetailContainerComponent } from '../student-detail-container/stu
 @Component({
   selector: 'app-student-list-container',
   templateUrl: './student-list-container.component.html',
-  styleUrls: ['./student-list-container.component.scss']
+  styleUrls: ['./student-list-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StudentListContainerComponent {
   students$ = this.studentsService.students$;

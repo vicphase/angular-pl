@@ -1,5 +1,6 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import {
+  ChangeDetectionStrategy,
   Component,
   ContentChild,
   EventEmitter,
@@ -12,7 +13,8 @@ import {
 @Component({
   selector: 'app-virtual-scroll',
   templateUrl: './virtual-scroll.component.html',
-  styleUrls: ['./virtual-scroll.component.scss']
+  styleUrls: ['./virtual-scroll.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VirtualScrollComponent<T = any> {
   @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;

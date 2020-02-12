@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
@@ -9,7 +9,8 @@ import { StudentsService } from '../../services/students.service';
 @Component({
   selector: 'app-student-form-container',
   templateUrl: './student-form-container.component.html',
-  styleUrls: ['./student-form-container.component.scss']
+  styleUrls: ['./student-form-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StudentFormContainerComponent implements OnInit {
   currentItem: Student;

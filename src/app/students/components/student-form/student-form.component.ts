@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnChanges } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 
 import { FormComponent } from '../../../shared/components/form/form.component';
@@ -18,7 +18,8 @@ function hasDuplicates(array: any[]): boolean {
 @Component({
   selector: 'app-student-form',
   templateUrl: './student-form.component.html',
-  styleUrls: ['./student-form.component.scss']
+  styleUrls: ['./student-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StudentFormComponent extends FormComponent<Student> implements OnChanges {
   therapyOptions = Object.keys(TherapyTypes).map(key => ({ value: key, label: TherapyTypes[key] }));
