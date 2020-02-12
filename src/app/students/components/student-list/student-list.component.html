@@ -48,7 +48,8 @@
           {{ item.therapies | arrayToString }}
         </div>
         <div class="col-2 flex-end">
-          <button mat-icon-button>
+          <button mat-icon-button
+                  [routerLink]="[item.id]">
             <mat-icon>border_color</mat-icon>
           </button>
           <button mat-icon-button>

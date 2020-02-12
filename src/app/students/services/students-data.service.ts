@@ -418,10 +418,20 @@ export class StudentsDataService {
     return students;
   }
 
+  getStudent(id: string): Student {
+    return this.students.find(student => student.id === id);
+  }
+
   createStudent(student: Student): Student {
     const newStudent = { ...student, id: String(this.students.length) };
     this.students.push(newStudent);
     return newStudent;
+  }
+
+  updateStudent(updatedStudent: Student): Student {
+    const index = this.students.findIndex(student => student.id === updatedStudent.id);
+    this.students[index] = updatedStudent;
+    return updatedStudent;
   }
 }
 

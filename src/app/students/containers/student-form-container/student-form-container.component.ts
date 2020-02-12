@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
 import { Student } from '../../models/student.model';
@@ -12,21 +12,25 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./student-form-container.component.scss']
 })
 export class StudentFormContainerComponent implements OnInit {
+  currentItem: Student;
   constructor(
     private studentsService: StudentsService,
     private router: Router,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.currentItem = this.route.snapshot.data.resolvedStudent;
+  }
 
   submit(student: Student): void {
-    this.studentsService
-      .createStudent(student)
-      .pipe(take(1))
-      .subscribe(() => {
-        this.router.navigate(['..']);
-        this.matSnackBar.open('The student has been created', 'Ok', { duration: 2000 });
-      });
+    const method = student.id
+      ? this.studentsService.updateStudent(student)
+      : this.studentsService.createStudent(student);
+    method.pipe(take(1)).subscribe(() => {
+      this.router.navigate(['..']);
+      this.matSnackBar.open('The student has been saved', 'Ok', { duration: 2000 });
+    });
   }
 }

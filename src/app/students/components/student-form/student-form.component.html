@@ -5,7 +5,7 @@
         <mat-card-content class="mx-4 my-2">
           <div class="text-center">
             <h3 class="mb-4">
-              <strong>New Student</strong>
+              <strong>{{ item?.id ? 'Edit Student' : 'New Student' }}</strong>
             </h3>
           </div>
           <form [formGroup]="form"
@@ -46,7 +46,7 @@
                   <mat-select [formControl]="therapyControl">
                     <mat-option *ngFor="let therapy of therapyOptions"
                                 [value]="therapy.value">
-                      {{ therapy.label }}
+                      {{ therapy.label | titlecase }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -72,6 +72,8 @@
             <div class="row py-3">
               <div class="col flex-end">
                 <button mat-flat-button
+                        [routerLink]="['..']"
+                        class="mr-2"
                         type="button">
                   Cancel
                 </button>

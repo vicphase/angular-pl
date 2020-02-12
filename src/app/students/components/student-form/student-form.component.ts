@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 
 import { FormComponent } from '../../../shared/components/form/form.component';
@@ -20,7 +20,7 @@ function hasDuplicates(array: any[]): boolean {
   templateUrl: './student-form.component.html',
   styleUrls: ['./student-form.component.scss']
 })
-export class StudentFormComponent extends FormComponent<Student> {
+export class StudentFormComponent extends FormComponent<Student> implements OnChanges {
   therapyOptions = Object.keys(TherapyTypes).map(key => ({ value: key, label: TherapyTypes[key] }));
 
   get therapiesFormArray(): FormArray {
@@ -30,11 +30,22 @@ export class StudentFormComponent extends FormComponent<Student> {
   constructor(private fb: FormBuilder) {
     super();
     this.form = this.fb.group({
+      id: null,
       name: ['', Validators.required],
       therapies: this.fb.array([this.fb.control('', Validators.required)], {
         validators: uniqueValues
       })
     });
+  }
+
+  ngOnChanges() {
+    if (this.item) {
+      this.form.patchValue(this.item);
+      this.form.controls.therapies = this.fb.array([]);
+      this.item.therapies.forEach(therapy =>
+        this.therapiesFormArray.push(this.fb.control(therapy, Validators.required))
+      );
+    }
   }
 
   addTherapy(): void {

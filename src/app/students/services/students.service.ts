@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { delay, map, tap } from 'rxjs/operators';
 
 import { LoadingService } from '../../shared/components/loading/loading.service';
 import { DEFAULT_LIMIT_SIZE } from '../../shared/constants/default-limit-size';
@@ -46,9 +46,26 @@ export class StudentsService {
     );
   }
 
+  getStudent(id: string): Observable<Student> {
+    this.loadingService.show();
+    return of(this.studentsDataService.getStudent(id)).pipe(
+      delay(DELAY_TIME),
+      tap(() => this.loadingService.hide()),
+      map(student => student)
+    );
+  }
+
   createStudent(student: Student): Observable<Student> {
     this.loadingService.show();
     return of(this.studentsDataService.createStudent(student)).pipe(
+      delay(DELAY_TIME),
+      tap(() => this.loadingService.hide())
+    );
+  }
+
+  updateStudent(student: Student): Observable<Student> {
+    this.loadingService.show();
+    return of(this.studentsDataService.updateStudent(student)).pipe(
       delay(DELAY_TIME),
       tap(() => this.loadingService.hide())
     );

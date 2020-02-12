@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { QueryParams } from '../../shared/models/query-params.model';
 import { Student } from '../models/student.model';
-import { StudentsService } from './students.service';
+import { StudentsService } from '../services/students.service';
 
 @Injectable({
   providedIn: 'root'
