@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { QueryParams } from 'src/app/shared/models/query-params.model';
 
+import { QueryParams } from '../../shared/models/query-params.model';
 import { StudentsServiceMock } from '../../tests/students.service.mock';
 import { StudentsService } from '../services/students.service';
 import { StudentsResolverService } from './students-resolver.service';

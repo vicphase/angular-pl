@@ -2,10 +2,10 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialog } from '@angular/material/dialog';
 import { of } from 'rxjs';
-import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
-import { QueryParams } from 'src/app/shared/models/query-params.model';
 
+import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { LoadingService } from '../../../shared/components/loading/loading.service';
+import { QueryParams } from '../../../shared/models/query-params.model';
 import { LoadingServiceMock } from '../../../tests/loading.service.mock';
 import { MatDialogMock } from '../../../tests/mat-dialog.mock';
 import { StudentsServiceMock } from '../../../tests/students.service.mock';

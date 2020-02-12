@@ -4,7 +4,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
-import { MatSnackBarMock } from 'src/app/tests/mat-snack-bar.mock';
 
 import { StudentsServiceMock } from '../../../tests/students.service.mock';
 import { Student } from '../../models/student.model';
