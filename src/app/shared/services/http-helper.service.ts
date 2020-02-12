@@ -13,10 +13,9 @@ export class HttpHelperService {
       limit: DEFAULT_LIMIT_SIZE
     };
     const params = { ...defaultQueryParams, ...queryParams };
-    if (queryParams == null) {
+    if (!queryParams) {
       return defaultQueryParams;
     }
-
     if (queryParams.resetList) {
       params.offset = 0;
     }

@@ -117,7 +117,6 @@ export class StudentsDataService {
       const { active, direction } = queryParams.sort;
       students = students.sort(compareValues(active, direction));
     }
-    students = students.slice(queryParams.offset, queryParams.offset + queryParams.limit);
     if (queryParams.text) {
       const filterText = queryParams.text.toLowerCase();
       students = students.filter(student => {
@@ -127,6 +126,7 @@ export class StudentsDataService {
         );
       });
     }
+    students = students.slice(queryParams.offset, queryParams.offset + queryParams.limit);
     return students;
   }
 

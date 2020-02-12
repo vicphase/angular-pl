@@ -22,7 +22,6 @@
                 </mat-form-field>
               </div>
             </div>
-
             <div class="row mb-2">
               <div class="col-8">
                 <h4>Therapies</h4>
@@ -37,7 +36,6 @@
                 </button>
               </div>
             </div>
-
             <div class="row"
                  *ngFor="let therapyControl of therapiesFormArray.controls; let i = index">
               <div class="col-10">
@@ -50,6 +48,9 @@
                       {{ therapy.label | titlecase }}
                     </mat-option>
                   </mat-select>
+                  <mat-error *ngIf="therapyControl.hasError('required') && therapyControl.touched">
+                    Therapy field cannot be empty
+                  </mat-error>
                 </mat-form-field>
               </div>
               <div class="col-2 flex-end">
@@ -60,7 +61,6 @@
                 </button>
               </div>
             </div>
-
             <div *ngIf="form.get('therapies').hasError('uniqueValues')"
                  class="row">
               <div class="col">
@@ -69,7 +69,6 @@
                 </mat-error>
               </div>
             </div>
-
             <div class="row py-3">
               <div class="col flex-end">
                 <button mat-flat-button
