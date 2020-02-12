@@ -417,6 +417,12 @@ export class StudentsDataService {
     }
     return students;
   }
+
+  createStudent(student: Student): Student {
+    const newStudent = { ...student, id: String(this.students.length) };
+    this.students.push(newStudent);
+    return newStudent;
+  }
 }
 
 function compareValues(key: string, order: string = 'asc') {

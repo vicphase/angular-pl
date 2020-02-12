@@ -14,9 +14,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { FormComponent } from './components/form/form.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
@@ -28,6 +31,7 @@ const MATERIAL_MODULES = [
   MatInputModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatSelectModule,
   // Navigation
   MatMenuModule,
   MatToolbarModule,
@@ -41,13 +45,14 @@ const MATERIAL_MODULES = [
   MatProgressSpinnerModule,
   // Popups & Modals
   MatDialogModule,
+  MatSnackBarModule,
   // Data table
   MatSortModule,
   // CDK
   ScrollingModule
 ];
 
-const COMPONENTS = [LoadingComponent, SearchBarComponent, VirtualScrollComponent];
+const COMPONENTS = [LoadingComponent, FormComponent, SearchBarComponent, VirtualScrollComponent];
 
 const PIPES = [ArrayToStringPipe];
 

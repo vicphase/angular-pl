@@ -45,4 +45,12 @@ export class StudentsService {
       })
     );
   }
+
+  createStudent(student: Student): Observable<Student> {
+    this.loadingService.show();
+    return of(this.studentsDataService.createStudent(student)).pipe(
+      delay(DELAY_TIME),
+      tap(() => this.loadingService.hide())
+    );
+  }
 }
