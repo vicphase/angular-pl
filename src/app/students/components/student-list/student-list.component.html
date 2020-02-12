@@ -49,14 +49,17 @@
         </div>
         <div class="col-2 flex-end">
           <button mat-icon-button
+                  matTooltip="Student detail"
                   (click)="detail.emit(item)">
             <mat-icon>remove_red_eye</mat-icon>
           </button>
           <button mat-icon-button
+                  matTooltip="Edit student"
                   [routerLink]="[item.id]">
             <mat-icon>border_color</mat-icon>
           </button>
           <button mat-icon-button
+                  matTooltip="Delete student"
                   (click)="delete.emit(item)">
             <mat-icon>delete</mat-icon>
           </button>

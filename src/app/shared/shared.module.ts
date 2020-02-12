@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { FormComponent } from './components/form/form.component';
@@ -47,6 +48,7 @@ const MATERIAL_MODULES = [
   // Popups & Modals
   MatDialogModule,
   MatSnackBarModule,
+  MatTooltipModule,
   // Data table
   MatSortModule,
   // CDK
