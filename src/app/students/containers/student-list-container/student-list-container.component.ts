@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { filter, switchMap, take } from 'rxjs/operators';
-import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
+import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { LoadingService } from '../../../shared/components/loading/loading.service';
 import { QueryParams } from '../../../shared/models/query-params.model';
 import { Student } from '../../models/student.model';
 import { StudentsService } from '../../services/students.service';
+import { StudentDetailContainerComponent } from '../student-detail-container/student-detail-container.component';
 
 @Component({
   selector: 'app-student-list-container',
@@ -37,6 +38,10 @@ export class StudentListContainerComponent {
       .getStudents(newQueryParams)
       .pipe(take(1))
       .subscribe();
+  }
+
+  viewDetail(student: Student): void {
+    this.matDialog.open(StudentDetailContainerComponent, { data: { student } });
   }
 
   deleteItem(student: Student): void {

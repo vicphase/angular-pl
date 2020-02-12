@@ -49,6 +49,10 @@
         </div>
         <div class="col-2 flex-end">
           <button mat-icon-button
+                  (click)="detail.emit(item)">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <button mat-icon-button
                   [routerLink]="[item.id]">
             <mat-icon>border_color</mat-icon>
           </button>

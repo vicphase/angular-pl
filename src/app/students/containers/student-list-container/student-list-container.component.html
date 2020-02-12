@@ -2,6 +2,7 @@
                   [hasMoreItems]="hasMoreItems$ | async"
                   [loading]="loading$ | async"
                   (delete)="deleteItem($event)"
+                  (detail)="viewDetail($event)"
                   (filterItems)="filterItems($event)"
                   (getMoreItems)="getMoreItems()">
 </app-student-list>
