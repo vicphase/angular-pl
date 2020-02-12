@@ -1,4 +1,6 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { StudentDetailContainerComponent } from './student-detail-container.component';
 
@@ -8,9 +10,10 @@ describe('StudentDetailContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentDetailContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [StudentDetailContainerComponent],
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

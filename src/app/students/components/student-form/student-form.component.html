@@ -43,7 +43,8 @@
               <div class="col-10">
                 <mat-form-field class="w-100">
                   <mat-label>Therapy</mat-label>
-                  <mat-select [formControl]="therapyControl">
+                  <mat-select ngDefaultControl
+                              [formControl]="therapyControl">
                     <mat-option *ngFor="let therapy of therapyOptions"
                                 [value]="therapy.value">
                       {{ therapy.label | titlecase }}

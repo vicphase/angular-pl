@@ -1,5 +1,7 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ArrayToStringPipe } from '../../../shared/pipes/array-to-string.pipe';
 import { StudentListComponent } from './student-list.component';
 
 describe('StudentListComponent', () => {
@@ -8,9 +10,9 @@ describe('StudentListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentListComponent ]
-    })
-    .compileComponents();
+      declarations: [StudentListComponent, ArrayToStringPipe],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
