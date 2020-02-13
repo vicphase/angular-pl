@@ -23,6 +23,9 @@ const routes: Routes = [
   }
 ];
 
+/**
+ * Module containing the routes of our students module
+ */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

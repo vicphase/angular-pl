@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { QueryParams } from '../../shared/models/query-params.model';
-import { TherapyTypes } from '../../therapies/enums/therapy-types.enum';
+import { TherapyTypes } from '../enums/therapy-types.enum';
 import { Student } from '../models/student.model';
 
 @Injectable({

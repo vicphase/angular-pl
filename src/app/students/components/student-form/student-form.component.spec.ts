@@ -1,8 +1,8 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TherapyTypes } from '../../../therapies/enums/therapy-types.enum';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { TherapyTypes } from '../../enums/therapy-types.enum';
 import { Student } from '../../models/student.model';
 import { StudentFormComponent } from './student-form.component';
 

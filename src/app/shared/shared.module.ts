@@ -27,6 +27,9 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
 import { ArrayToStringPipe } from './pipes/array-to-string.pipe';
 
+/**
+ * Modules from Angular Material library
+ */
 const MATERIAL_MODULES = [
   // Form controls
   MatFormFieldModule,
@@ -55,6 +58,9 @@ const MATERIAL_MODULES = [
   ScrollingModule
 ];
 
+/**
+ * Dumb component
+ */
 const COMPONENTS = [
   ConfirmDialogComponent,
   LoadingComponent,
@@ -63,8 +69,17 @@ const COMPONENTS = [
   VirtualScrollComponent
 ];
 
+/**
+ * Dumb pipes
+ */
 const PIPES = [ArrayToStringPipe];
 
+/**
+ * All the “dumb” components and pipes should be implemented here.
+ * These components don’t import and inject services from core or other features in their constructors.
+ * They should receive all data though attributes in the template of the component using them.
+ * This all sums up to the fact that SharedModule doesn’t have any dependency to the rest of our application.
+ */
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, MATERIAL_MODULES],
   exports: [MATERIAL_MODULES, COMPONENTS, PIPES],

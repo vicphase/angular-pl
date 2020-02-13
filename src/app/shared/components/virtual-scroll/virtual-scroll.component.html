@@ -8,7 +8,7 @@
                let-index="index"
                cdkVirtualFor
                [cdkVirtualForOf]="list">
-    <ng-container [ngTemplateOutlet]="rowTemplate || childRowTemplate"
+    <ng-container [ngTemplateOutlet]="childRowTemplate"
                   [ngTemplateOutletContext]="{ $implicit: row, index: index }"></ng-container>
   </ng-template>
 </cdk-virtual-scroll-viewport>
