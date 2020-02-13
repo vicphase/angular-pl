@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { SearchBarComponent } from './search-bar.component';
 
@@ -20,7 +20,12 @@ describe('SearchBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should emit the value when control value changes', fakeAsync(() => {
+    spyOn(component.valueChange, 'emit');
+
+    component.control.patchValue('test');
+    tick(500);
+
+    expect(component.valueChange.emit).toHaveBeenCalledWith('test');
+  }));
 });

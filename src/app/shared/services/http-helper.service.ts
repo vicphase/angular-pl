@@ -16,7 +16,7 @@ export class HttpHelperService {
    * @param queryParams query params gave by the list
    * @returns query params that will be sent to the API
    */
-  buildQueryParams(queryParams: Partial<QueryParams>): Partial<QueryParams> {
+  buildQueryParams(queryParams?: Partial<QueryParams>): Partial<QueryParams> {
     const defaultQueryParams: Partial<QueryParams> = {
       offset: 0,
       limit: DEFAULT_LIMIT_SIZE

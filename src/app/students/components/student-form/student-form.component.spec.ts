@@ -1,6 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { TherapyTypes } from '../../enums/therapy-types.enum';
 import { Student } from '../../models/student.model';
@@ -33,6 +33,14 @@ describe('StudentFormComponent', () => {
     expect(component.form.value).toEqual(student);
   });
 
+  it('should not patch the form if items does not exist', () => {
+    const student: Student = { id: '1', name: 'test', therapies: [TherapyTypes.behavioral] };
+
+    component.ngOnChanges();
+
+    expect(component.form.value).not.toEqual(student);
+  });
+
   it('should add a therapy', () => {
     spyOn(component.therapiesFormArray, 'push');
 
@@ -47,5 +55,12 @@ describe('StudentFormComponent', () => {
     component.deleteTherapy(1);
 
     expect(component.therapiesFormArray.removeAt).toHaveBeenCalledWith(1);
+  });
+
+  it('should get the uniqueValues error in form', () => {
+    const mockedTherapies: TherapyTypes[] = [TherapyTypes.behavioral, TherapyTypes.behavioral];
+    mockedTherapies.forEach(therapy => component.therapiesFormArray.push(new FormControl(therapy)));
+
+    expect(component.form.get('therapies').hasError('uniqueValues')).toBeTruthy();
   });
 });

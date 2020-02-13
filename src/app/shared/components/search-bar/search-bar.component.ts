@@ -40,7 +40,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this.control.valueChanges
-      .pipe(debounceTime(1000), takeUntil(this.destroy$))
+      .pipe(debounceTime(500), takeUntil(this.destroy$))
       .subscribe(value => this.valueChange.emit(value));
   }
 

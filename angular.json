@@ -85,6 +85,7 @@
           "options": {
             "main": "src/test.ts",
             "codeCoverageExclude": [
+              "src/app/tests/**",
               "src/app/students/services/students-data.service.ts"
             ],
             "polyfills": "src/polyfills.ts",
